@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bwuibn4ehnagb"]
+
+[ext_resource type="Theme" uid="uid://cxjad84ala0fb" path="res://core/theme/vault.tres" id="1_hw24o"]
+[ext_resource type="Script" uid="uid://cgvghtek4orxv" path="res://core/bmae_tools/bmae_button.gd" id="2_6i7rl"]
+
+[node name="bmae_button" type="Button" unique_id=1042327610]
+custom_minimum_size = Vector2(100, 0)
+offset_right = 100.0
+offset_bottom = 35.0
+theme = ExtResource("1_hw24o")
+text = "button"
+script = ExtResource("2_6i7rl")
+cmd = "example"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

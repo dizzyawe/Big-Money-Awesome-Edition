@@ -1,0 +1,56 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[addons]
+
+curved_lines_2d/paint_order=4
+curved_lines_2d/line_begin_cap=0
+curved_lines_2d/line_end_cap=2
+curved_lines_2d/snap_to_pixel=false
+curved_lines_2d/stroke_width=1.0
+
+[application]
+
+config/name="Big Money: Awe-some Edition"
+run/main_scene="uid://iknqkun5x8ne"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="bmae"
+config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=100
+config/icon="uid://dc5362wls7b05"
+
+[audio]
+
+buses/default_bus_layout="uid://dheblmlsx01su"
+
+[autoload]
+
+sfx_player="*uid://d3ekqo1qxdqd4"
+music_player="*uid://brwa5pp42djua"
+Global="*uid://ccyrejefydfpo"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-openmpt/plugin.cfg")
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"

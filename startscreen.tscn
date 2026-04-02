@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b8cmr7au16owf"]
+
+[ext_resource type="Texture2D" uid="uid://dmygp0ns52frf" path="res://core/sprites/LOGO BLACK.svg" id="1_8hh42"]
+
+[node name="startscreen" type="Node2D" unique_id=667031606]
+
+[node name="LogoBlack" type="Sprite2D" parent="." unique_id=527893207]
+position = Vector2(320, 245)
+texture = ExtResource("1_8hh42")

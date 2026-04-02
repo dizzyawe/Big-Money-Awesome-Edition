@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://brwa5pp42djua"]
+
+[ext_resource type="AudioStream" uid="uid://ckcd2d4mywpk4" path="res://core/music/QualityTime_BigMoney.it" id="1_k4xj7"]
+[ext_resource type="Script" uid="uid://b6w1ahrberncn" path="res://music_player.gd" id="2_p3pav"]
+
+[node name="music_player" type="AudioStreamPlayer" unique_id=294184759]
+stream = ExtResource("1_k4xj7")
+bus = &"music"
+script = ExtResource("2_p3pav")

@@ -1,0 +1,654 @@
+[gd_scene format=3 uid="uid://u7hmag14gndh"]
+
+[ext_resource type="Texture2D" uid="uid://drjs4ymk4rt6b" path="res://core/characters/moneybags/sprites/moneybags_head.svg" id="1_r4r56"]
+[ext_resource type="Texture2D" uid="uid://c175jmpd2b8ht" path="res://core/characters/moneybags/sprites/Mouth1.svg" id="2_5686j"]
+[ext_resource type="Script" uid="uid://byvbnxdts5a76" path="res://moneybags.gd" id="2_o370k"]
+[ext_resource type="AudioStream" uid="uid://ci8x8nbounei2" path="res://core/characters/moneybags/sfx/awesome.ogg" id="3_jocjm"]
+[ext_resource type="AudioStream" uid="uid://cel05xhdoqvgn" path="res://core/characters/moneybags/sfx/go.ogg" id="3_lbqdt"]
+[ext_resource type="AudioStream" uid="uid://ckinp0rar58id" path="res://core/characters/moneybags/sfx/welcome.ogg" id="3_mxwdy"]
+[ext_resource type="AudioStream" uid="uid://cij2pptxt3eal" path="res://core/characters/moneybags/sfx/gameover.ogg" id="4_1g8xk"]
+[ext_resource type="Texture2D" uid="uid://t70fv14jc20" path="res://core/characters/moneybags/sprites/Mouth2.svg" id="5_ma3yb"]
+[ext_resource type="AudioStream" uid="uid://vttflwgr6o0v" path="res://core/characters/moneybags/sfx/one.ogg" id="6_hxx3g"]
+[ext_resource type="Texture2D" uid="uid://b6kk24uqrhk8y" path="res://core/characters/moneybags/sprites/Mouth3.svg" id="6_lbqdt"]
+[ext_resource type="AudioStream" uid="uid://dx0di401a3oo" path="res://core/characters/moneybags/sfx/loveit.ogg" id="6_omar4"]
+[ext_resource type="Texture2D" uid="uid://btlwufc5n5aj1" path="res://core/characters/moneybags/sprites/Mouth4.svg" id="7_jocjm"]
+[ext_resource type="AudioStream" uid="uid://jpd3nul6ji45" path="res://core/characters/moneybags/sfx/three.ogg" id="7_omar4"]
+[ext_resource type="Texture2D" uid="uid://bgwtxra7aduoo" path="res://core/characters/moneybags/sprites/Mouth5.svg" id="8_imx1w"]
+[ext_resource type="AudioStream" uid="uid://djrduq6jmb10e" path="res://core/characters/moneybags/sfx/two.ogg" id="8_sqyl5"]
+[ext_resource type="Texture2D" uid="uid://cgovi1kxwdtbx" path="res://core/characters/moneybags/sprites/Blink.svg" id="10_jocjm"]
+
+[sub_resource type="Animation" id="Animation_r6wwr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Blink:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../lip_sync")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("mouth1"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_1g8xk"]
+resource_name = "awesome"
+length = 1.3
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_jocjm")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../lip_sync:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.33333334, 0.43333334, 0.6333333, 0.9, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"mouth1", &"mouth3", &"mouth5", &"mouth2", &"mouth3", &"mouth4", &"mouth1"]
+}
+
+[sub_resource type="Animation" id="Animation_ra3vu"]
+resource_name = "gameover"
+length = 1.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_1g8xk")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../lip_sync:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.53333336, 0.7, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"mouth1", &"mouth5", &"mouth3", &"mouth4", &"mouth2", &"mouth5", &"mouth3"]
+}
+
+[sub_resource type="Animation" id="Animation_imx1w"]
+resource_name = "go"
+length = 0.9
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_lbqdt")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../lip_sync:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [&"mouth1", &"mouth5", &"mouth2", &"mouth1"]
+}
+
+[sub_resource type="Animation" id="Animation_hxx3g"]
+resource_name = "idle_0"
+length = 20.0
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../lip_sync")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("mouth1"),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_mxwdy"]
+resource_name = "idle_1"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../lip_sync:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"mouth1"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Blink:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2666669, 8.018415, 8.066667, 8.1, 8.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../lip_sync")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("mouth1", "mouth2", "mouth4", "mouth5", "mouth1"),
+"times": PackedFloat32Array(0, 7.8333335, 8.066667, 9.5, 9.733334)
+}
+
+[sub_resource type="Animation" id="Animation_omar4"]
+resource_name = "idle_2"
+length = 20.0
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../lip_sync")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("mouth1", "mouth1", "mouth4", "mouth1"),
+"times": PackedFloat32Array(0, 0.16666667, 4.2, 7.4)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Blink:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7.968779, 8.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_dklyy"]
+resource_name = "idle_3"
+length = 20.0
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../lip_sync")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("mouth1", "mouth1", "mouth5", "mouth1", "mouth5", "mouth1"),
+"times": PackedFloat32Array(0, 0.03333378, 14.3, 14.9, 15.433333, 16.033333)
+}
+
+[sub_resource type="Animation" id="Animation_sqyl5"]
+resource_name = "loveit"
+length = 2.6
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_omar4")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../lip_sync:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.23333333, 0.53333336, 0.6333333, 0.76666665, 0.9, 1, 1.2333333, 1.4, 1.4666667, 1.6, 1.7666667, 2.1333334, 2.2, 2.3333333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"mouth4", &"mouth3", &"mouth5", &"mouth4", &"mouth3", &"mouth5", &"mouth3", &"mouth1", &"mouth3", &"mouth2", &"mouth3", &"mouth5", &"mouth2", &"mouth4", &"mouth3", &"mouth1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Blink:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4071819, 2.1666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_buuem"]
+resource_name = "one"
+length = 0.6
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_hxx3g")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../lip_sync:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.16666667, 0.23333333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [&"mouth2", &"mouth3", &"mouth5", &"mouth1"]
+}
+
+[sub_resource type="Animation" id="Animation_ydcxw"]
+resource_name = "three"
+length = 0.8
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_omar4")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../lip_sync:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.16666667, 0.26666668, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [&"mouth5", &"mouth2", &"mouth3", &"mouth1"]
+}
+
+[sub_resource type="Animation" id="Animation_eijyx"]
+resource_name = "two"
+length = 0.8
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_sqyl5")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../lip_sync:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"mouth5", &"mouth2", &"mouth1"]
+}
+
+[sub_resource type="Animation" id="Animation_737ak"]
+resource_name = "welcome"
+length = 2.65
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_mxwdy")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../lip_sync:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.26666668, 0.4, 0.46666667, 0.53333336, 0.76666665, 0.8, 1.0333333, 1.2666667, 1.3666667, 1.5, 1.7333333, 2, 2.1, 2.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"mouth1", &"mouth2", &"mouth3", &"mouth5", &"mouth3", &"mouth4", &"mouth5", &"mouth3", &"mouth4", &"mouth4", &"mouth3", &"mouth5", &"mouth4", &"mouth2", &"mouth5", &"mouth3"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1g8xk"]
+_data = {
+&"RESET": SubResource("Animation_r6wwr"),
+&"awesome": SubResource("Animation_1g8xk"),
+&"gameover": SubResource("Animation_ra3vu"),
+&"go": SubResource("Animation_imx1w"),
+&"idle_0": SubResource("Animation_hxx3g"),
+&"idle_1": SubResource("Animation_mxwdy"),
+&"idle_2": SubResource("Animation_omar4"),
+&"idle_3": SubResource("Animation_dklyy"),
+&"loveit": SubResource("Animation_sqyl5"),
+&"one": SubResource("Animation_buuem"),
+&"three": SubResource("Animation_ydcxw"),
+&"two": SubResource("Animation_eijyx"),
+&"welcome": SubResource("Animation_737ak")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o370k"]
+atlas = ExtResource("2_5686j")
+region = Rect2(0, 0, 270, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxx3g"]
+atlas = ExtResource("5_ma3yb")
+region = Rect2(0, 0, 241, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omar4"]
+atlas = ExtResource("6_lbqdt")
+region = Rect2(0, 0, 270, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqyl5"]
+atlas = ExtResource("7_jocjm")
+region = Rect2(0, 0, 234, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra3vu"]
+atlas = ExtResource("8_imx1w")
+region = Rect2(0, 0, 218, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubsg8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o370k")
+}],
+"loop": true,
+"name": &"mouth1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxx3g")
+}],
+"loop": true,
+"name": &"mouth2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omar4")
+}],
+"loop": true,
+"name": &"mouth3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqyl5")
+}],
+"loop": true,
+"name": &"mouth4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra3vu")
+}],
+"loop": true,
+"name": &"mouth5",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_05uu6"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_5u7f6"]
+resource_name = "mouth1"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"mouth1"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 33)]
+}
+
+[sub_resource type="Animation" id="Animation_8drk6"]
+resource_name = "mouth2"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"mouth2"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 58)]
+}
+
+[sub_resource type="Animation" id="Animation_gxger"]
+resource_name = "mouth3"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"mouth3"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_auip3"]
+resource_name = "mouth4"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"mouth4"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21, 37)]
+}
+
+[sub_resource type="Animation" id="Animation_r0mho"]
+resource_name = "mouth5"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"mouth5"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_buuem"]
+_data = {
+&"RESET": SubResource("Animation_05uu6"),
+&"mouth1": SubResource("Animation_5u7f6"),
+&"mouth2": SubResource("Animation_8drk6"),
+&"mouth3": SubResource("Animation_gxger"),
+&"mouth4": SubResource("Animation_auip3"),
+&"mouth5": SubResource("Animation_r0mho")
+}
+
+[node name="moneybags" type="Sprite2D" unique_id=1706147433]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_r4r56")
+script = ExtResource("2_o370k")
+
+[node name="animations" type="AnimationPlayer" parent="." unique_id=416197722]
+root_node = NodePath("../mouth")
+libraries/ = SubResource("AnimationLibrary_1g8xk")
+
+[node name="voice_lines" type="AudioStreamPlayer" parent="animations" unique_id=1921722443]
+bus = &"sfx"
+
+[node name="mouth" type="AnimatedSprite2D" parent="." unique_id=1700389112]
+position = Vector2(16, 33)
+sprite_frames = SubResource("SpriteFrames_ubsg8")
+animation = &"mouth1"
+
+[node name="lip_sync" type="AnimationPlayer" parent="." unique_id=924745765]
+root_node = NodePath("../mouth")
+libraries/ = SubResource("AnimationLibrary_buuem")
+
+[node name="Blink" type="Sprite2D" parent="." unique_id=844071901]
+visible = false
+position = Vector2(-22, -67)
+texture = ExtResource("10_jocjm")

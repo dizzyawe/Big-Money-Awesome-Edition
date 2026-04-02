@@ -1,0 +1,42 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://dh8cnfafgtod5"
+path="res://.godot/imported/Pricedown Bl.otf-498c1dbe6ed0c9b6f235a4e1579a55fb.fontdata"
+
+[deps]
+
+source_file="res://core/fonts/Pricedown Bl.otf"
+dest_files=["res://.godot/imported/Pricedown Bl.otf-498c1dbe6ed0c9b6f235a4e1579a55fb.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=2
+generate_mipmaps=true
+disable_embedded_bitmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0),
+&"variation_embolden": 0.0
+}]
+language_support={}
+script_support={}
+opentype_features={}

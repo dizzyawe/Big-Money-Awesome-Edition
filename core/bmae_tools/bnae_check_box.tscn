@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://tsy6476ky42d"]
+
+[ext_resource type="Theme" uid="uid://cxjad84ala0fb" path="res://core/theme/vault.tres" id="1_3fft6"]
+[ext_resource type="Script" uid="uid://bn528vrwcwg4d" path="res://core/bmae_tools/bnae_check_box.gd" id="2_t3hi4"]
+
+[node name="CheckBox" type="CheckBox" unique_id=1363958045]
+theme = ExtResource("1_3fft6")
+alignment = 2
+autowrap_trim_flags = 0
+clip_text = true
+script = ExtResource("2_t3hi4")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

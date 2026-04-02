@@ -1,0 +1,372 @@
+[gd_scene format=3 uid="uid://bea5m2631xuk6"]
+
+[ext_resource type="Texture2D" uid="uid://dxkjpn1uejwq" path="res://core/sprites/olddialog.png" id="1_hdmo1"]
+[ext_resource type="Theme" uid="uid://cxjad84ala0fb" path="res://core/theme/vault.tres" id="2_nwcfo"]
+[ext_resource type="PackedScene" uid="uid://bwuibn4ehnagb" path="res://core/bmae_tools/bmae_button.tscn" id="3_05uyy"]
+[ext_resource type="PackedScene" uid="uid://dbm164ry35pqi" path="res://core/bmae_tools/bmae_h_slider.tscn" id="4_2nc7s"]
+[ext_resource type="Script" uid="uid://c7408srxsd1xa" path="res://menu_handler.gd" id="4_p81d2"]
+[ext_resource type="PackedScene" uid="uid://tsy6476ky42d" path="res://core/bmae_tools/bnae_check_box.tscn" id="5_d3xb4"]
+
+[sub_resource type="Animation" id="Animation_d3xb4"]
+resource_name = "configuration"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect/options:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect/configuration:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NinePatchRect/credits:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mxa3g"]
+resource_name = "credits"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect/credits:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect/configuration:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NinePatchRect/options:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_e8sti"]
+resource_name = "options"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect/options:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NinePatchRect/configuration:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NinePatchRect/credits:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2yj1"]
+_data = {
+&"configuration": SubResource("Animation_d3xb4"),
+&"credits": SubResource("Animation_mxa3g"),
+&"options": SubResource("Animation_e8sti")
+}
+
+[node name="pause_menu" type="Node2D" unique_id=1818597625]
+
+[node name="menu_handler" type="Node" parent="." unique_id=2022689807]
+script = ExtResource("4_p81d2")
+
+[node name="state_handler" type="AnimationPlayer" parent="menu_handler" unique_id=640842754]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_q2yj1")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1022733187]
+offset_left = 1.0
+offset_right = 395.0
+offset_bottom = 343.0
+texture = ExtResource("1_hdmo1")
+region_rect = Rect2(6, 3, 180, 184)
+patch_margin_left = 46
+patch_margin_top = 54
+patch_margin_right = 41
+patch_margin_bottom = 55
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="options" type="ScrollContainer" parent="NinePatchRect" unique_id=1613679649]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 27.0
+offset_right = -40.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_nwcfo")
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/options" unique_id=1549587862]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="header" type="RichTextLabel" parent="NinePatchRect/options/VBoxContainer" unique_id=304281103]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme = ExtResource("2_nwcfo")
+bbcode_enabled = true
+text = "oPtions"
+horizontal_alignment = 1
+
+[node name="music" type="HBoxContainer" parent="NinePatchRect/options/VBoxContainer" unique_id=2007936535]
+layout_mode = 2
+
+[node name="label" type="RichTextLabel" parent="NinePatchRect/options/VBoxContainer/music" unique_id=961260290]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/normal_font_size = 20
+text = "music"
+
+[node name="HSlider" parent="NinePatchRect/options/VBoxContainer/music" unique_id=1631037979 node_paths=PackedStringArray("node") instance=ExtResource("4_2nc7s")]
+layout_mode = 2
+min_value = 49.0
+value = 50.0
+corresponding_value = "mus_volume"
+node = NodePath("../../../../../menu_handler")
+cmd = "mus_volume"
+
+[node name="sound_fx" type="HBoxContainer" parent="NinePatchRect/options/VBoxContainer" unique_id=1978755153]
+layout_mode = 2
+
+[node name="label" type="RichTextLabel" parent="NinePatchRect/options/VBoxContainer/sound_fx" unique_id=689941307]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/normal_font_size = 20
+text = "sound fx"
+
+[node name="HSlider" parent="NinePatchRect/options/VBoxContainer/sound_fx" unique_id=398245770 node_paths=PackedStringArray("node") instance=ExtResource("4_2nc7s")]
+layout_mode = 2
+min_value = 49.0
+value = 49.0
+corresponding_value = "sfx_volume"
+node = NodePath("../../../../../menu_handler")
+sound = "res://core/sfx/volumetick.wav"
+cmd = "sfx_volume"
+
+[node name="fullscreen" type="HBoxContainer" parent="NinePatchRect/options/VBoxContainer" unique_id=1750746166]
+layout_mode = 2
+alignment = 1
+
+[node name="CheckBox" parent="NinePatchRect/options/VBoxContainer/fullscreen" unique_id=1363958045 node_paths=PackedStringArray("node") instance=ExtResource("5_d3xb4")]
+layout_mode = 2
+corresponding_value = "fullscreen"
+node = NodePath("../../../../../menu_handler")
+sound = "res://core/sfx/buttonclick.ogg"
+cmd = "toggle_fullscreen"
+
+[node name="label" type="RichTextLabel" parent="NinePatchRect/options/VBoxContainer/fullscreen" unique_id=1643217391]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/normal_font_size = 20
+text = "fullscreen"
+
+[node name="custom_cursors" type="HBoxContainer" parent="NinePatchRect/options/VBoxContainer" unique_id=1530300825]
+layout_mode = 2
+alignment = 1
+
+[node name="CheckBox" parent="NinePatchRect/options/VBoxContainer/custom_cursors" unique_id=2142933676 node_paths=PackedStringArray("node") instance=ExtResource("5_d3xb4")]
+layout_mode = 2
+corresponding_value = "fullscreen"
+node = NodePath("../../../../../menu_handler")
+
+[node name="label" type="RichTextLabel" parent="NinePatchRect/options/VBoxContainer/custom_cursors" unique_id=589757152]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/normal_font_size = 20
+text = "custom cursors"
+
+[node name="Button" type="Button" parent="NinePatchRect/options/VBoxContainer/custom_cursors" unique_id=588061218]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+text = "     Pick     "
+
+[node name="bmae_button" parent="NinePatchRect/options/VBoxContainer" unique_id=1042327610 node_paths=PackedStringArray("menu_handler") instance=ExtResource("3_05uyy")]
+layout_mode = 2
+text = "scores"
+cmd = "scores"
+menu_handler = NodePath("../../../../menu_handler")
+
+[node name="controls_and_credits" type="HBoxContainer" parent="NinePatchRect/options/VBoxContainer" unique_id=1411086508]
+layout_mode = 2
+
+[node name="bmae_button" parent="NinePatchRect/options/VBoxContainer/controls_and_credits" unique_id=1623569794 node_paths=PackedStringArray("menu_handler") instance=ExtResource("3_05uyy")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "controls"
+cmd = "controls"
+menu_handler = NodePath("../../../../../menu_handler")
+
+[node name="bmae_button2" parent="NinePatchRect/options/VBoxContainer/controls_and_credits" unique_id=507300884 node_paths=PackedStringArray("menu_handler") instance=ExtResource("3_05uyy")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "credits"
+cmd = "credits"
+menu_handler = NodePath("../../../../../menu_handler")
+
+[node name="bmae_button3" parent="NinePatchRect/options/VBoxContainer" unique_id=1599771243 node_paths=PackedStringArray("menu_handler") instance=ExtResource("3_05uyy")]
+layout_mode = 2
+text = "done"
+menu_handler = NodePath("../../../../menu_handler")
+
+[node name="configuration" type="ScrollContainer" parent="NinePatchRect" unique_id=636645113]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 27.0
+offset_right = -40.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_nwcfo")
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/configuration" unique_id=894535328]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="header" type="RichTextLabel" parent="NinePatchRect/configuration/VBoxContainer" unique_id=882533991]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme = ExtResource("2_nwcfo")
+bbcode_enabled = true
+text = "Configuration"
+horizontal_alignment = 1
+
+[node name="credits" type="ScrollContainer" parent="NinePatchRect" unique_id=1879381113]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 27.0
+offset_right = -40.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_nwcfo")
+follow_focus = true
+
+[node name="scores" type="ScrollContainer" parent="NinePatchRect" unique_id=660841870]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 27.0
+offset_right = -40.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_nwcfo")
+follow_focus = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/scores" unique_id=25564253]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="header" type="RichTextLabel" parent="NinePatchRect/scores/VBoxContainer2" unique_id=1802128136]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme = ExtResource("2_nwcfo")
+bbcode_enabled = true
+text = "Scores"
+horizontal_alignment = 1
+
+[connection signal="value_changed" from="NinePatchRect/options/VBoxContainer/music/HSlider" to="NinePatchRect/options/VBoxContainer/music/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="NinePatchRect/options/VBoxContainer/sound_fx/HSlider" to="NinePatchRect/options/VBoxContainer/sound_fx/HSlider" method="_on_value_changed"]
