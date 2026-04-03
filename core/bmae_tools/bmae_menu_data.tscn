@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dsk0s74ya0frr"]
+
+[ext_resource type="Script" uid="uid://hno3371c3ra7" path="res://core/bmae_tools/bmae_menu_data.gd" id="1_6f746"]
+
+[node name="bmae_menu_data" type="Node" unique_id=2037876618]
+script = ExtResource("1_6f746")

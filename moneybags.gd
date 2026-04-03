@@ -17,29 +17,27 @@ signal reached_goal
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#
 func _process(_delta: float) -> void:
-	velocity = _delta * hld(goal.position-position,velocity,100,3)
-	
-	position += _delta * velocity
+	position = bounce(0.12,goal.position,position,_delta) 
 	if round(position) == goal.position:
 		if !at_goal:
 			at_goal = true
 			emit_signal("reached_goal")
 	else:
 		at_goal = false
-	
-	rotation = (velocity.x/4)/360
+	rotation = (velocity.x)/50
 	if anim_state == anim_states.idle:
 		if !anim.is_playing():
 			anim.play(str("idle_",randi_range(0,3)))
-func hld(ds:Vector2,vel:Vector2,stf:float,damp:float):
-	return (stf*ds)-(damp*vel)
+func bounce(damping,goal_pos,input_vector,deltatime):
+	velocity += (goal_pos - input_vector) * (1 - damping) * deltatime
+	velocity = velocity * (1 - damping)
+	return input_vector + velocity 
 
 func play_anim(input):
-	anim_state = anim_states.speaking
-	anim.play(input)
-	await anim.animation_finished
+	if Global.config_get_setting("audio","sfx_volume") > 49:
+		anim_state = anim_states.speaking
+		anim.play(input)
+		await anim.animation_finished
 	anim_state = anim_states.idle

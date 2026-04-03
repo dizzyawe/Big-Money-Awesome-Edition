@@ -1,0 +1,350 @@
+[gd_scene format=3 uid="uid://ci3p8tfujttxv"]
+
+[ext_resource type="Texture2D" uid="uid://dbj4iok24xgov" path="res://core/characters/bert_money/bert_head.png" id="1_ibpgq"]
+[ext_resource type="Script" uid="uid://byvbnxdts5a76" path="res://moneybags.gd" id="2_ibpgq"]
+[ext_resource type="AudioStream" uid="uid://ci8x8nbounei2" path="res://core/characters/moneybags/sfx/awesome.ogg" id="3_cfx57"]
+[ext_resource type="AudioStream" uid="uid://cij2pptxt3eal" path="res://core/characters/moneybags/sfx/gameover.ogg" id="4_kevuq"]
+[ext_resource type="AudioStream" uid="uid://cel05xhdoqvgn" path="res://core/characters/moneybags/sfx/go.ogg" id="5_1rs0a"]
+[ext_resource type="AudioStream" uid="uid://dx0di401a3oo" path="res://core/characters/moneybags/sfx/loveit.ogg" id="6_ijre0"]
+[ext_resource type="AudioStream" uid="uid://vttflwgr6o0v" path="res://core/characters/moneybags/sfx/one.ogg" id="7_2umiq"]
+[ext_resource type="AudioStream" uid="uid://jpd3nul6ji45" path="res://core/characters/moneybags/sfx/three.ogg" id="8_g3wbf"]
+[ext_resource type="AudioStream" uid="uid://djrduq6jmb10e" path="res://core/characters/moneybags/sfx/two.ogg" id="9_22ybk"]
+[ext_resource type="AudioStream" uid="uid://ckinp0rar58id" path="res://core/characters/moneybags/sfx/welcome.ogg" id="10_bpwal"]
+[ext_resource type="Texture2D" uid="uid://b43usgsgg2inc" path="res://core/characters/bert_money/bert_mouth_open.png" id="11_cfx57"]
+[ext_resource type="Texture2D" uid="uid://big4ded673cmn" path="res://core/characters/bert_money/bert_mouth_e_n_i.png" id="12_kevuq"]
+[ext_resource type="Texture2D" uid="uid://mkjh6nqsxbjm" path="res://core/characters/bert_money/bert_mouth_L.png" id="13_1rs0a"]
+[ext_resource type="Texture2D" uid="uid://ulf6q04pcfyc" path="res://core/characters/bert_money/bert_mouth_m_b_p.png" id="14_ijre0"]
+[ext_resource type="Texture2D" uid="uid://c83e1b0udibam" path="res://core/characters/bert_money/bert_mouth_o.png" id="15_2umiq"]
+[ext_resource type="Texture2D" uid="uid://b8smt44ifcbne" path="res://core/characters/bert_money/bert_eyes_closed.png" id="16_g3wbf"]
+[ext_resource type="Texture2D" uid="uid://cqjrl2iswat1w" path="res://core/characters/bert_money/bert_eyes_open.png" id="17_22ybk"]
+
+[sub_resource type="Animation" id="Animation_r6wwr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"mouth_l"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../eyes:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"open"]
+}
+
+[sub_resource type="Animation" id="Animation_1g8xk"]
+resource_name = "awesome"
+length = 1.3
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_cfx57")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_ra3vu"]
+resource_name = "gameover"
+length = 1.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_kevuq")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_imx1w"]
+resource_name = "go"
+length = 0.9
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_1rs0a")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_hxx3g"]
+resource_name = "idle_0"
+length = 20.0
+
+[sub_resource type="Animation" id="Animation_mxwdy"]
+resource_name = "idle_1"
+length = 20.0
+
+[sub_resource type="Animation" id="Animation_omar4"]
+resource_name = "idle_2"
+length = 20.0
+
+[sub_resource type="Animation" id="Animation_dklyy"]
+resource_name = "idle_3"
+length = 20.0
+
+[sub_resource type="Animation" id="Animation_sqyl5"]
+resource_name = "loveit"
+length = 2.6
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_ijre0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_buuem"]
+resource_name = "one"
+length = 0.6
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_2umiq")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_ydcxw"]
+resource_name = "three"
+length = 0.8
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_g3wbf")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.060467668, 0.13333334, 0.23333333, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"mouth", &"mouth_l", &"mouth_o", &"mouth_e_n_i", &"mouth"]
+}
+
+[sub_resource type="Animation" id="Animation_eijyx"]
+resource_name = "two"
+length = 0.8
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_22ybk")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_737ak"]
+resource_name = "welcome"
+length = 2.65
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../animations/voice_lines")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_bpwal")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.037210874, 0.26666668, 0.33333334, 0.46666667, 0.56666666, 0.6333333, 0.8, 0.8666667, 1.2, 1.3, 1.4333333, 1.7333333, 2, 2.1, 2.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"mouth_o", &"mouth", &"mouth_l", &"mouth_e_n_i", &"mouth_o", &"mouth_m_b_p", &"mouth_e_n_i", &"mouth", &"mouth_m_b_p", &"mouth", &"mouth_e_n_i", &"mouth_m_b_p", &"mouth_o", &"mouth_l", &"mouth"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../eyes:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8666667, 1.3333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"open", &"close", &"open"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1g8xk"]
+_data = {
+&"RESET": SubResource("Animation_r6wwr"),
+&"awesome": SubResource("Animation_1g8xk"),
+&"gameover": SubResource("Animation_ra3vu"),
+&"go": SubResource("Animation_imx1w"),
+&"idle_0": SubResource("Animation_hxx3g"),
+&"idle_1": SubResource("Animation_mxwdy"),
+&"idle_2": SubResource("Animation_omar4"),
+&"idle_3": SubResource("Animation_dklyy"),
+&"loveit": SubResource("Animation_sqyl5"),
+&"one": SubResource("Animation_buuem"),
+&"three": SubResource("Animation_ydcxw"),
+&"two": SubResource("Animation_eijyx"),
+&"welcome": SubResource("Animation_737ak")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubsg8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_cfx57")
+}],
+"loop": true,
+"name": &"mouth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_kevuq")
+}],
+"loop": true,
+"name": &"mouth_e_n_i",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_1rs0a")
+}],
+"loop": true,
+"name": &"mouth_l",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ijre0")
+}],
+"loop": true,
+"name": &"mouth_m_b_p",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_2umiq")
+}],
+"loop": true,
+"name": &"mouth_o",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bpwal"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_g3wbf")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_22ybk")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="bert" type="Sprite2D" unique_id=1706147433]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ibpgq")
+script = ExtResource("2_ibpgq")
+
+[node name="animations" type="AnimationPlayer" parent="." unique_id=416197722]
+root_node = NodePath("../mouth")
+libraries/ = SubResource("AnimationLibrary_1g8xk")
+
+[node name="voice_lines" type="AudioStreamPlayer" parent="animations" unique_id=1921722443]
+bus = &"sfx"
+
+[node name="mouth" type="AnimatedSprite2D" parent="." unique_id=1700389112]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_ubsg8")
+animation = &"mouth_l"
+
+[node name="eyes" type="AnimatedSprite2D" parent="." unique_id=1259261793]
+sprite_frames = SubResource("SpriteFrames_bpwal")
+animation = &"open"

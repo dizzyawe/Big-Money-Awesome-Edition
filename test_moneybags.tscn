@@ -11,10 +11,9 @@ script = ExtResource("1_rfpsl")
 position = Vector2(91, 240)
 texture = ExtResource("5_jlq0l")
 
-[node name="moneybags" parent="." unique_id=1706147433 node_paths=PackedStringArray("goal") instance=ExtResource("1_p1gm3")]
-position = Vector2(-629, -115)
-goal = NodePath("../Goal")
-smoothing_speed = 20
-
 [node name="Goal" type="Node2D" parent="." unique_id=2069416881]
 position = Vector2(86, 334)
+
+[node name="moneybags" parent="." unique_id=1706147433 node_paths=PackedStringArray("goal") instance=ExtResource("1_p1gm3")]
+position = Vector2(-260, 163)
+goal = NodePath("../Goal")

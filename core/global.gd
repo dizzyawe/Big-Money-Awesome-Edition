@@ -13,6 +13,7 @@ func _ready() -> void:
 		load_config()
 
 func make_preset_config():
+	config.set_value("version","id","0.1")
 	#VIDEO
 	config.set_value("video","fullscreen",false)
 	config.set_value("video","custom_cursors",false)
@@ -39,7 +40,6 @@ func config_get_setting(type,key):
 	return config.get_value(type,key,null)
 
 func print_settings():
-	print("SETTINGS:")
 	print(config.encode_to_text())
 
 func toggle_fullscreen(full:bool):
