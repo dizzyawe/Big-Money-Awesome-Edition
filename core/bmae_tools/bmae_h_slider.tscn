@@ -3,8 +3,9 @@
 [ext_resource type="Theme" uid="uid://cxjad84ala0fb" path="res://core/theme/vault.tres" id="1_whq3i"]
 [ext_resource type="Script" uid="uid://b47asfmtg3n2n" path="res://core/bmae_tools/bmae_h_slider.gd" id="2_agnjl"]
 
-[node name="HSlider" type="HSlider" unique_id=1631037979]
+[node name="bmae_h_slider" type="HSlider" unique_id=1631037979]
 custom_minimum_size = Vector2(200, 0)
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_whq3i")
 scrollable = false
 script = ExtResource("2_agnjl")

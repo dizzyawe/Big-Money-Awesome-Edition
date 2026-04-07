@@ -20,7 +20,7 @@ func _ready() -> void:
 #
 func _process(_delta: float) -> void:
 	position = bounce(0.12,goal.position,position,_delta) 
-	if round(position) == goal.position:
+	if round(position) == goal.position: 
 		if !at_goal:
 			at_goal = true
 			emit_signal("reached_goal")
@@ -30,6 +30,7 @@ func _process(_delta: float) -> void:
 	if anim_state == anim_states.idle:
 		if !anim.is_playing():
 			anim.play(str("idle_",randi_range(0,3)))
+
 func bounce(damping,goal_pos,input_vector,deltatime):
 	velocity += (goal_pos - input_vector) * (1 - damping) * deltatime
 	velocity = velocity * (1 - damping)

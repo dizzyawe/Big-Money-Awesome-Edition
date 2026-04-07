@@ -1,19 +1,31 @@
 [gd_scene format=3 uid="uid://iknqkun5x8ne"]
 
-[ext_resource type="PackedScene" uid="uid://u7hmag14gndh" path="res://moneybags.tscn" id="1_p1gm3"]
 [ext_resource type="Script" uid="uid://bng32lwp0dtg1" path="res://test_moneybags.gd" id="1_rfpsl"]
+[ext_resource type="Script" uid="uid://ckjwecvw2n8t6" path="res://camera.gd" id="4_d1syr"]
+[ext_resource type="PackedScene" uid="uid://u7hmag14gndh" path="res://moneybags.tscn" id="4_jlq0l"]
 [ext_resource type="Texture2D" uid="uid://c73rgcljbsa0r" path="res://core/sprites/leftbar.svg" id="5_jlq0l"]
 
 [node name="test moneybags" type="Node2D" unique_id=1335517005]
 script = ExtResource("1_rfpsl")
 
-[node name="Leftbar" type="Sprite2D" parent="." unique_id=1009164635]
-position = Vector2(91, 240)
+[node name="leftbar" type="NinePatchRect" parent="." unique_id=630418451]
+offset_left = -7.0
+offset_top = 1.0
+offset_right = 183.0
+offset_bottom = 480.0
 texture = ExtResource("5_jlq0l")
+patch_margin_left = 37
+patch_margin_top = 177
+patch_margin_right = 53
+patch_margin_bottom = 166
 
 [node name="Goal" type="Node2D" parent="." unique_id=2069416881]
 position = Vector2(86, 334)
 
-[node name="moneybags" parent="." unique_id=1706147433 node_paths=PackedStringArray("goal") instance=ExtResource("1_p1gm3")]
-position = Vector2(-260, 163)
+[node name="Camera" type="Camera2D" parent="." unique_id=248662124]
+position = Vector2(320, 240)
+script = ExtResource("4_d1syr")
+
+[node name="moneybags" parent="." unique_id=1706147433 node_paths=PackedStringArray("goal") instance=ExtResource("4_jlq0l")]
+position = Vector2(-596, 28)
 goal = NodePath("../Goal")

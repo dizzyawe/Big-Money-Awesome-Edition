@@ -1,5 +1,6 @@
 extends Node2D
 @onready var dealer = $moneybags
+@onready var leftbar = $leftbar
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	music_player.load_music_file("res://core/music/QualityTime_BigMoney.it")
@@ -10,4 +11,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	leftbar.position.y = 479- get_viewport().size.y 
+	leftbar.size.y = get_viewport().size.y

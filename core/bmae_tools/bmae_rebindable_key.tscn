@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://nlgn82urfbwh"]
+
+[ext_resource type="Script" uid="uid://c4jwq3usgxake" path="res://core/bmae_tools/bmae_rebindable_key.gd" id="1_2x3cm"]
+[ext_resource type="Theme" uid="uid://cxjad84ala0fb" path="res://core/theme/vault.tres" id="2_ld1gy"]
+
+[node name="bmae_rebindable_key" type="HBoxContainer" unique_id=1928496490]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 35.0
+grow_horizontal = 2
+alignment = 1
+script = ExtResource("1_2x3cm")
+
+[node name="key_name" type="RichTextLabel" parent="." unique_id=6977023]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ld1gy")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "select"
+vertical_alignment = 1
+
+[node name="key_name2" type="RichTextLabel" parent="." unique_id=1967349193]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ld1gy")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "bind"
+vertical_alignment = 1
+
+[node name="bind_button" type="Button" parent="." unique_id=1042327610]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("2_ld1gy")
+text = "rebind"

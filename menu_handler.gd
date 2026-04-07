@@ -1,6 +1,7 @@
 extends Node
-@onready var state_handler:AnimationPlayer = $state_handler
 @onready var menus:Node = $"../menus"
+@onready var menus_nodes:Node = $"../menus_nodes"
+@onready var controller_sprite = $"../menus_nodes/controller_sprite"
 @export var deafault_menu:String = "options"
 #for buttons
 var sfx_volume:float = 90
@@ -27,16 +28,29 @@ func command(cmd):
 			Global.config_save_setting("video","fullscreen",fullscreen)
 		"custom_cursors":
 			Global.config_save_setting("video","custom_cursors",custom_cursors)
-			$"../NinePatchRect/options/VBoxContainer/custom_cursors/select_cursor_button".visible = custom_cursors
+			$"../menus_nodes/options/VBoxContainer/custom_cursors/select_cursor_button".visible = custom_cursors
 			if menu_position == "cursor_button":
 				menu_position ="cursor"
 		"controls":
-			state_handler.play("configuration")
+			state_handler("configuration")
+			controller_sprite.position = Vector2(147,0)
+			controller_sprite.show()
+			var tween = create_tween()
+			tween.tween_property(controller_sprite,"position",Vector2(394,0),1).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+			for i in $"../menus_nodes/configuration/VBoxContainer/rebindables".get_children():
+				i.queue_free()
+			for i in Global.controls:
+				var rk = load("res://core/bmae_tools/bmae_rebindable_key.tscn").instantiate()
+				rk.key_name = Global.controls[i]["name"]
+				$"../menus_nodes/configuration/VBoxContainer/rebindables".add_child(rk)
+				pass
 		"credits":
-			state_handler.play("credits")
+			state_handler("credits")
+		"options":
+			state_handler("options")
 #
 func _ready() -> void:
-	state_handler.play("options")
+	state_handler("options")
 	music_player.load_music_file("res://core/music/QualityTime_BigMoney.it")
 	music_player.play_song(3)
 	music_player.my_mptpb.seek(41,0)
@@ -45,7 +59,7 @@ func _ready() -> void:
 	mus_volume = Global.config_get_setting("audio","mus_volume")
 	fullscreen = Global.config_get_setting("video","fullscreen")
 	custom_cursors = Global.config_get_setting("video","custom_cursors")
-	$"../NinePatchRect/options/VBoxContainer/custom_cursors/select_cursor_button".visible = custom_cursors
+	$"../menus_nodes/options/VBoxContainer/custom_cursors/select_cursor_button".visible = custom_cursors
 	load_menu(deafault_menu)
 #
 func load_menu(menu):
@@ -54,7 +68,7 @@ func load_menu(menu):
 	option_nodes = grabbed_menu.options
 	menu_position = grabbed_menu.def_item
 #
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	menu_input()
 #
 func menu_input():
@@ -92,3 +106,10 @@ func select_option(direction):
 			cur_option_node = potential_option
 			menu_position = option_name
 			cur_option_node.grab_focus()
+
+func state_handler(play:String):
+	for i in menus_nodes.get_children():
+		i.hide()
+	menus_nodes.get_node(play).show()
+	print(play)
+	load_menu(play)

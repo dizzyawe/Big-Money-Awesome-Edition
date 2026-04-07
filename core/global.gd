@@ -1,7 +1,16 @@
 extends Node2D
 
 const SETTINGS_FILE_PATH = "user://config/"
+var input_type = ""
 var config = ConfigFile.new()
+var controls:Dictionary = {
+	"action_up":{"name":"Up"},
+	"action_down":{"name":"Down"},
+	"action_left":{"name":"Left"},
+	"action_right":{"name":"Right"},
+	"ui_accept":{"name":"Accept"}
+}
+
 
 var events:Dictionary = {}
 var is_first_playthrough:bool = false
